@@ -1,4 +1,409 @@
 # Jarkom-Modul-2-2026-K-60
+# LAPORAN PRAKTIKUM MODUL 2
+## KOMUNIKASI DATA & JARINGAN KOMPUTER 2026
+
+**Kelompok:** K-60  
+**Domain:** K-60.com  
+**Prefix Jaringan:** 192.241.x.x  
+
+---
+
+## Topologi dan Pembagian IP
+
+| Node | IP Address | Fungsi |
+|---|---|---|
+| rootkit | 192.241.1.1 / 192.241.2.1 / 192.241.3.1 / 192.241.4.1 / 192.241.5.1 | Router/Gateway |
+| prab | 192.241.1.2 | Primary DNS |
+| tedd | 192.241.1.3 | Secondary DNS |
+| obladi | 192.241.1.4 | Static Web Server |
+| desmond | 192.241.1.5 | Static Web Server |
+| oblada | 192.241.1.6 | Dynamic Web Server |
+| molly | 192.241.1.7 | Dynamic Web Server |
+| abbey | 192.241.2.2 | Gateway / Reverse Proxy |
+| penny | 192.241.3.2 | Gateway / Reverse Proxy |
+| alpha | 192.241.4.2 | Client |
+| beta | 192.241.4.3 | Client |
+| gamma | 192.241.4.4 | Client |
+| delta | 192.241.5.2 | Client |
+| epsilon | 192.241.5.3 | Client |
+
+---
+
+# Soal 1 — Konfigurasi IP Address dan Gateway
+
+## Deskripsi
+
+Pada tahap pertama dilakukan konfigurasi alamat IP pada seluruh node berdasarkan subnet masing-masing. Node `rootkit` berperan sebagai router sentral yang menghubungkan lima jaringan internal.
+
+Pembagian jaringan yang digunakan adalah:
+
+- `192.241.1.0/24` untuk DNS dan server backend.
+- `192.241.2.0/24` untuk Abbey.
+- `192.241.3.0/24` untuk Penny.
+- `192.241.4.0/24` untuk Alpha, Beta, dan Gamma.
+- `192.241.5.0/24` untuk Delta dan Epsilon.
+
+Masing-masing host menggunakan interface Rootkit pada subnetnya sebagai default gateway.
+
+Konfigurasi dibuat dalam script `/root/soal1.sh` agar dapat dijalankan kembali ketika node diaktifkan.
+
+## Hasil Pengujian
+
+Konfigurasi IP dan default gateway berhasil diterapkan. Setiap node memiliki alamat IP sesuai dengan subnet yang telah ditentukan.
+
+## Bukti
+
+### Gambar 1. Konfigurasi interface Rootkit
+
+> **[MASUKKAN SCREENSHOT GAMBAR 1 DI SINI]**
+
+### Gambar 2. IP address dan default gateway salah satu client
+
+> **[MASUKKAN SCREENSHOT GAMBAR 2 DI SINI]**
+
+---
+
+# Soal 2 — NAT dan Akses Internet
+
+## Deskripsi
+
+Rootkit dikonfigurasi sebagai gateway menuju jaringan eksternal melalui interface WAN yang terhubung ke NAT GNS3.
+
+Interface WAN Rootkit menggunakan:
+
+- IP: `192.168.122.2/24`
+- Gateway: `192.168.122.1`
+
+IP forwarding diaktifkan pada Rootkit agar paket dari jaringan internal dapat diteruskan. Selain itu, digunakan aturan `MASQUERADE` pada iptables sehingga host dengan alamat internal `192.241.0.0/16` dapat mengakses jaringan publik.
+
+## Hasil Pengujian
+
+Client pada jaringan internal berhasil mengakses IP publik melalui Rootkit. Pengujian dilakukan menggunakan ICMP menuju `8.8.8.8`.
+
+## Bukti
+
+### Gambar 3. Konfigurasi WAN dan NAT Rootkit
+
+> **[MASUKKAN SCREENSHOT GAMBAR 3 DI SINI]**
+
+### Gambar 4. Pengujian internet dari client
+
+> **[MASUKKAN SCREENSHOT GAMBAR 4 DI SINI]**
+
+---
+
+# Soal 3 — Routing Internal dan Resolver Awal
+
+## Deskripsi
+
+Seluruh subnet internal dihubungkan melalui Rootkit sehingga komunikasi antarsegmen dapat dilakukan.
+
+Pada tahap awal, seluruh host non-router menggunakan resolver:
+
+`192.168.122.1`
+
+Resolver tersebut digunakan agar node dapat melakukan resolusi domain publik dan mengunduh package yang diperlukan.
+
+## Hasil Pengujian
+
+Routing antarsegmen berhasil. Client pada jaringan `192.241.4.0/24` dapat berkomunikasi dengan client pada `192.241.5.0/24` serta server pada `192.241.1.0/24`.
+
+Resolver eksternal juga berhasil digunakan untuk melakukan resolusi domain publik.
+
+## Bukti
+
+### Gambar 5. Pengujian routing antarsegmen
+
+> **[MASUKKAN SCREENSHOT GAMBAR 5 DI SINI]**
+
+### Gambar 6. Resolver dan pengujian domain publik
+
+> **[MASUKKAN SCREENSHOT GAMBAR 6 DI SINI]**
+
+---
+
+# Soal 4 — Primary dan Secondary DNS
+
+## Deskripsi
+
+Node `prab` dikonfigurasi sebagai Primary DNS dan `tedd` sebagai Secondary DNS untuk zona:
+
+`K-60.com`
+
+Pada Primary DNS dibuat SOA yang menunjuk ke `prab.K-60.com` serta NS record untuk:
+
+- `prab.K-60.com`
+- `tedd.K-60.com`
+
+A record utama yang digunakan antara lain:
+
+- `prab.K-60.com` → `192.241.1.2`
+- `tedd.K-60.com` → `192.241.1.3`
+- `K-60.com` → `192.241.3.2`
+
+Prab mengizinkan zone transfer menuju Tedd. DNS juga menggunakan `192.168.122.1` sebagai forwarder.
+
+Setelah DNS internal aktif, resolver host non-router disusun dengan urutan:
+
+1. `192.241.1.2` (Prab)
+2. `192.241.1.3` (Tedd)
+3. `192.168.122.1`
+
+Konfigurasi DNS disimpan pada `/root/soal4-dns.sh` sehingga dapat dibangun kembali setelah node restart.
+
+## Hasil Pengujian
+
+Prab dan Tedd berhasil menjawab query DNS untuk zona `K-60.com`.
+
+## Bukti
+
+### Gambar 7. Query DNS melalui Prab dan Tedd
+
+> **[MASUKKAN SCREENSHOT GAMBAR 7 DI SINI]**
+
+### Gambar 8. Resolver internal
+
+> **[MASUKKAN SCREENSHOT GAMBAR 8 DI SINI]**
+
+---
+
+# Soal 5 — Hostname dan A Record
+
+## Deskripsi
+
+Setiap node dikonfigurasi menggunakan hostname sesuai dengan nama entitas pada topologi, yaitu:
+
+`rootkit`, `alpha`, `beta`, `gamma`, `delta`, `epsilon`, `prab`, `tedd`, `abbey`, `penny`, `obladi`, `desmond`, `oblada`, dan `molly`.
+
+A record kemudian ditambahkan pada zona `K-60.com` sehingga hostname dapat diterjemahkan menjadi alamat IP yang sesuai.
+
+Contoh:
+
+- `alpha.K-60.com` → `192.241.4.2`
+- `beta.K-60.com` → `192.241.4.3`
+- `abbey.K-60.com` → `192.241.2.2`
+- `penny.K-60.com` → `192.241.3.2`
+- `obladi.K-60.com` → `192.241.1.4`
+- `desmond.K-60.com` → `192.241.1.5`
+- `oblada.K-60.com` → `192.241.1.6`
+- `molly.K-60.com` → `192.241.1.7`
+
+## Hasil Pengujian
+
+Hostname berhasil diterapkan secara system-wide dan DNS dapat menerjemahkan hostname menjadi IP address yang sesuai.
+
+## Bukti
+
+### Gambar 9. Verifikasi hostname
+
+> **[MASUKKAN SCREENSHOT GAMBAR 9 DI SINI]**
+
+### Gambar 10. Verifikasi A record
+
+> **[MASUKKAN SCREENSHOT GAMBAR 10 DI SINI]**
+
+---
+
+# Soal 6 — Zone Transfer
+
+## Deskripsi
+
+Tedd dikonfigurasi sebagai secondary/slave DNS dan menerima salinan zona dari Prab sebagai primary/master DNS.
+
+Sinkronisasi diverifikasi melalui nilai serial SOA. Primary dan Secondary DNS harus memiliki nilai serial yang sama sebagai tanda bahwa zone transfer berhasil.
+
+## Hasil Pengujian
+
+Serial SOA pada Prab dan Tedd memiliki nilai yang sama, yaitu:
+
+`2026093004`
+
+Hal tersebut menunjukkan bahwa Tedd telah memperoleh zona terbaru dari Prab.
+
+## Bukti
+
+### Gambar 11. Perbandingan serial SOA Prab dan Tedd
+
+> **[MASUKKAN SCREENSHOT GAMBAR 11 DI SINI]**
+
+---
+
+# Soal 7 — Vault, Core, dan CNAME
+
+## Deskripsi
+
+Area server dibagi menjadi:
+
+### Vault
+
+Area web statis:
+
+- Obladi → `192.241.1.4`
+- Desmond → `192.241.1.5`
+
+DNS:
+
+`vault.K-60.com`
+
+memiliki dua A record menuju Obladi dan Desmond.
+
+### Core
+
+Area web dinamis:
+
+- Oblada → `192.241.1.6`
+- Molly → `192.241.1.7`
+
+DNS:
+
+`core.K-60.com`
+
+memiliki dua A record menuju Oblada dan Molly.
+
+Selain itu dibuat CNAME:
+
+- `www.K-60.com` → `penny.K-60.com`
+- `static.K-60.com` → `abbey.K-60.com`
+
+## Hasil Pengujian
+
+Seluruh hostname berhasil di-resolve dengan benar. Pengujian dilakukan dari dua client berbeda untuk memastikan DNS dapat digunakan dari jaringan yang berbeda.
+
+## Bukti
+
+### Gambar 12. Record Vault, Core, WWW, dan Static
+
+> **[MASUKKAN SCREENSHOT GAMBAR 12 DI SINI]**
+
+### Gambar 13. Pengujian dari Client Alpha
+
+> **[MASUKKAN SCREENSHOT GAMBAR 13 DI SINI]**
+
+### Gambar 14. Pengujian dari Client Delta
+
+> **[MASUKKAN SCREENSHOT GAMBAR 14 DI SINI]**
+
+---
+
+# Soal 8 — Reverse DNS
+
+## Deskripsi
+
+Reverse DNS dikonfigurasi pada Prab sebagai master dan Tedd sebagai slave.
+
+Reverse zone yang digunakan adalah:
+
+- `1.241.192.in-addr.arpa`
+- `2.241.192.in-addr.arpa`
+- `3.241.192.in-addr.arpa`
+
+PTR record dibuat untuk server pada area Vault, Core, Abbey, dan Penny.
+
+Beberapa PTR record yang digunakan:
+
+- `192.241.1.4` → `obladi.K-60.com`
+- `192.241.1.5` → `desmond.K-60.com`
+- `192.241.1.6` → `oblada.K-60.com`
+- `192.241.1.7` → `molly.K-60.com`
+- `192.241.2.2` → `abbey.K-60.com`
+- `192.241.3.2` → `penny.K-60.com`
+
+Tedd menerima reverse zone tersebut melalui mekanisme slave zone.
+
+## Hasil Pengujian
+
+Reverse lookup berhasil mengembalikan hostname yang sesuai. Query melalui Tedd juga memiliki flag `aa` (Authoritative Answer).
+
+## Bukti
+
+### Gambar 15. Reverse lookup pada Prab
+
+> **[MASUKKAN SCREENSHOT GAMBAR 15 DI SINI]**
+
+### Gambar 16. Reverse lookup authoritative pada Tedd
+
+> **[MASUKKAN SCREENSHOT GAMBAR 16 DI SINI]**
+
+---
+
+# Soal 9 — Static Web Server Area Vault
+
+## Deskripsi
+
+Node Obladi dan Desmond pada area Vault dikonfigurasi sebagai static web server menggunakan Apache.
+
+Direktori:
+
+`/var/www/html/arsip`
+
+dibuat sebagai direktori arsip. Fitur Apache AutoIndex diaktifkan sehingga isi direktori dapat ditampilkan melalui browser tanpa harus membuat halaman index secara manual.
+
+Pengujian dilakukan menggunakan hostname dan bukan alamat IP.
+
+## Hasil Pengujian
+
+Web server Apache berhasil berjalan pada Obladi dan Desmond. Direktori `/arsip/` dapat diakses dan menampilkan daftar file menggunakan directory listing.
+
+## Bukti
+
+### Gambar 17. Directory listing Obladi
+
+> **[MASUKKAN SCREENSHOT GAMBAR 17 DI SINI]**
+
+### Gambar 18. Directory listing Desmond
+
+> **[MASUKKAN SCREENSHOT GAMBAR 18 DI SINI]**
+
+---
+
+# Soal 10 — Dynamic Web Server Area Core
+
+## Deskripsi
+
+Node Oblada dan Molly pada area Core dikonfigurasi sebagai dynamic web server menggunakan Nginx dan PHP-FPM.
+
+Aplikasi sederhana memiliki:
+
+- Halaman beranda.
+- Halaman profil.
+
+Konfigurasi rewrite pada Nginx diterapkan agar halaman profil dapat diakses menggunakan clean URL:
+
+`/profil`
+
+tanpa menggunakan ekstensi `.php`.
+
+Pengujian dilakukan melalui hostname masing-masing server.
+
+## Hasil Pengujian
+
+Nginx dan PHP-FPM berhasil menjalankan aplikasi pada kedua node Core. Halaman beranda dapat ditampilkan dan URL `/profil` berhasil diakses tanpa ekstensi `.php`.
+
+## Bukti
+
+### Gambar 19. Web dinamis Oblada
+
+> **[MASUKKAN SCREENSHOT GAMBAR 19 DI SINI]**
+
+### Gambar 20. Clean URL /profil Oblada
+
+> **[MASUKKAN SCREENSHOT GAMBAR 20 DI SINI]**
+
+### Gambar 21. Web dinamis Molly
+
+> **[MASUKKAN SCREENSHOT GAMBAR 21 DI SINI]**
+
+### Gambar 22. Clean URL /profil Molly
+
+> **[MASUKKAN SCREENSHOT GAMBAR 22 DI SINI]**
+
+---
+
+# Kesimpulan
+
+Pada pengerjaan soal 1–10, jaringan The Mesh berhasil dikonfigurasi mulai dari addressing, routing, NAT, DNS primary-secondary, zone transfer, forward dan reverse DNS, hingga penyediaan layanan web statis dan dinamis.
+
+Rootkit berhasil berfungsi sebagai router sentral dan gateway internet. Prab dan Tedd berhasil berfungsi sebagai Primary dan Secondary DNS. Area Vault berhasil menjalankan layanan web statis menggunakan Apache, sedangkan area Core berhasil menjalankan aplikasi dinamis menggunakan Nginx dan PHP-FPM.
 # Laporan Praktikum Jaringan Komputer (Soal 11 - 20)
 
 Dokumentasi implementasi konfigurasi layanan web, keamanan, reverse proxy, stress testing, DNS advance, hingga sistem autostart pada topologi **The Mesh - Shadow Net Operation** menggunakan kelompok **K-60** (`192.241.x.x`)[cite: 3, 5].
