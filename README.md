@@ -418,9 +418,6 @@ Nginx dan PHP-FPM berhasil menjalankan aplikasi pada kedua node Core. Halaman be
 Pada pengerjaan soal 1–10, jaringan The Mesh berhasil dikonfigurasi mulai dari addressing, routing, NAT, DNS primary-secondary, zone transfer, forward dan reverse DNS, hingga penyediaan layanan web statis dan dinamis.
 
 Rootkit berhasil berfungsi sebagai router sentral dan gateway internet. Prab dan Tedd berhasil berfungsi sebagai Primary dan Secondary DNS. Area Vault berhasil menjalankan layanan web statis menggunakan Apache, sedangkan area Core berhasil menjalankan aplikasi dinamis menggunakan Nginx dan PHP-FPM.
-# Laporan Praktikum Jaringan Komputer (Soal 11 - 20)
-
-Dokumentasi implementasi konfigurasi layanan web, keamanan, reverse proxy, stress testing, DNS advance, hingga sistem autostart pada topologi **The Mesh - Shadow Net Operation** menggunakan kelompok **K-60** (`192.241.x.x`)[cite: 3, 5].
 
 ---
 
