@@ -1,30 +1,31 @@
 # Jarkom-Modul-2-2026-K-60
+
 # LAPORAN PRAKTIKUM MODUL 2
 
 **Kelompok:** K-60  
 **Domain:** K-60.com  
-**Prefix Jaringan:** 192.241.x.x  
+**Prefix Jaringan:** 192.241.x.x
 
 ---
 
 ## Topologi dan Pembagian IP
 
-| Node | IP Address | Fungsi |
-|---|---|---|
-| rootkit | 192.241.1.1 / 192.241.2.1 / 192.241.3.1 / 192.241.4.1 / 192.241.5.1 | Router/Gateway |
-| prab | 192.241.1.2 | Primary DNS |
-| tedd | 192.241.1.3 | Secondary DNS |
-| obladi | 192.241.1.4 | Static Web Server |
-| desmond | 192.241.1.5 | Static Web Server |
-| oblada | 192.241.1.6 | Dynamic Web Server |
-| molly | 192.241.1.7 | Dynamic Web Server |
-| abbey | 192.241.2.2 | Gateway / Reverse Proxy |
-| penny | 192.241.3.2 | Gateway / Reverse Proxy |
-| alpha | 192.241.4.2 | Client |
-| beta | 192.241.4.3 | Client |
-| gamma | 192.241.4.4 | Client |
-| delta | 192.241.5.2 | Client |
-| epsilon | 192.241.5.3 | Client |
+| Node    | IP Address                                                          | Fungsi                  |
+| ------- | ------------------------------------------------------------------- | ----------------------- |
+| rootkit | 192.241.1.1 / 192.241.2.1 / 192.241.3.1 / 192.241.4.1 / 192.241.5.1 | Router/Gateway          |
+| prab    | 192.241.1.2                                                         | Primary DNS             |
+| tedd    | 192.241.1.3                                                         | Secondary DNS           |
+| obladi  | 192.241.1.4                                                         | Static Web Server       |
+| desmond | 192.241.1.5                                                         | Static Web Server       |
+| oblada  | 192.241.1.6                                                         | Dynamic Web Server      |
+| molly   | 192.241.1.7                                                         | Dynamic Web Server      |
+| abbey   | 192.241.2.2                                                         | Gateway / Reverse Proxy |
+| penny   | 192.241.3.2                                                         | Gateway / Reverse Proxy |
+| alpha   | 192.241.4.2                                                         | Client                  |
+| beta    | 192.241.4.3                                                         | Client                  |
+| gamma   | 192.241.4.4                                                         | Client                  |
+| delta   | 192.241.5.2                                                         | Client                  |
+| epsilon | 192.241.5.3                                                         | Client                  |
 
 ---
 
@@ -56,12 +57,9 @@ Konfigurasi IP dan default gateway berhasil diterapkan. Setiap node memiliki ala
 
 > <img width="622" height="355" alt="Screenshot 2026-10-01 214004" src="https://github.com/user-attachments/assets/14fef93c-2ea3-4b3a-a9f3-1350cea72ef0" />
 
-
 ### Gambar 2. IP address dan default gateway salah satu client
 
 > <img width="617" height="218" alt="Screenshot 2026-10-01 214128" src="https://github.com/user-attachments/assets/9cac789d-6221-4f41-834a-79292625568f" />
-
-
 
 ---
 
@@ -88,12 +86,10 @@ Client pada jaringan internal berhasil mengakses IP publik melalui Rootkit. Peng
 
 > <img width="641" height="161" alt="Screenshot 2026-10-01 214231" src="https://github.com/user-attachments/assets/bd714f4d-f5e5-44ff-b7a6-c64dce814916" />
 
-
 ### Gambar 4. Pengujian internet dari client
 
 > **[MASUKKAN SCREENSHOT GAMBAR 4 DI SINI]**
 > <img width="526" height="164" alt="Screenshot 2026-10-01 214314" src="https://github.com/user-attachments/assets/3c7d4e2e-594f-4bcf-b240-184f9b90ebdd" />
-
 
 ---
 
@@ -121,11 +117,9 @@ Resolver eksternal juga berhasil digunakan untuk melakukan resolusi domain publi
 
 > <img width="510" height="255" alt="Screenshot 2026-10-01 214613" src="https://github.com/user-attachments/assets/d75be81a-66ef-426a-94e0-569d985b176f" />
 
-
 ### Gambar 6. Resolver dan pengujian domain publik
 
 > <img width="645" height="208" alt="Screenshot 2026-10-01 214657" src="https://github.com/user-attachments/assets/4df17764-4b9c-4503-8fff-c5eebe54176a" />
-
 
 ---
 
@@ -168,11 +162,9 @@ Prab dan Tedd berhasil menjawab query DNS untuk zona `K-60.com`.
 
 > <img width="372" height="100" alt="Screenshot 2026-10-01 214758" src="https://github.com/user-attachments/assets/bb2d5670-ad30-4647-8485-4343ac823809" />
 
-
 ### Gambar 8. Resolver internal
 
 > <img width="504" height="132" alt="Screenshot 2026-10-01 214916" src="https://github.com/user-attachments/assets/c35b93d6-43fa-4e75-8c30-d98b62c3c039" />
-
 
 ---
 
@@ -207,11 +199,9 @@ Hostname berhasil diterapkan secara system-wide dan DNS dapat menerjemahkan host
 
 > <img width="192" height="102" alt="Screenshot 2026-10-01 215016" src="https://github.com/user-attachments/assets/40fac181-1260-4ce7-83f5-e33737df510f" />
 
-
 ### Gambar 10. Verifikasi A record
 
 > <img width="634" height="259" alt="Screenshot 2026-10-01 215100" src="https://github.com/user-attachments/assets/76a7db6a-d786-482b-93f3-8c7cee309752" />
-
 
 ---
 
@@ -236,7 +226,6 @@ Hal tersebut menunjukkan bahwa Tedd telah memperoleh zona terbaru dari Prab.
 ### Gambar 11. Perbandingan serial SOA Prab dan Tedd
 
 > <img width="556" height="135" alt="Screenshot 2026-10-01 215207" src="https://github.com/user-attachments/assets/c4839180-2f55-4f01-8ce0-ba27a453000e" />
-
 
 ---
 
@@ -287,15 +276,13 @@ Seluruh hostname berhasil di-resolve dengan benar. Pengujian dilakukan dari dua 
 
 > <img width="319" height="321" alt="Screenshot 2026-10-01 215300" src="https://github.com/user-attachments/assets/64cea192-19e6-41a3-9eee-07abfe572813" />
 
-
 ### Gambar 13. Pengujian dari Client Alpha
 
-> <img width="611" height="391" alt="Screenshot 2026-10-01 215413" src="https://github.com/user-attachments/assets/3e1c237e-2ac4-478a-b1dd-a1d799fec5b0" />
-
+> <img width="633" height="399" alt="Screenshot 2026-10-01 220010" src="https://github.com/user-attachments/assets/47c3a804-51f8-4db1-b77f-cad3f523b18a" />
 
 ### Gambar 14. Pengujian dari Client Delta
 
-> **[MASUKKAN SCREENSHOT GAMBAR 14 DI SINI]**
+> <img width="620" height="391" alt="Screenshot 2026-10-01 220143" src="https://github.com/user-attachments/assets/a41aea2a-3d26-44c3-a7fb-da17f75063d3" />
 
 ---
 
@@ -332,11 +319,11 @@ Reverse lookup berhasil mengembalikan hostname yang sesuai. Query melalui Tedd j
 
 ### Gambar 15. Reverse lookup pada Prab
 
-> **[MASUKKAN SCREENSHOT GAMBAR 15 DI SINI]**
+> <img width="419" height="207" alt="Screenshot 2026-10-01 220320" src="https://github.com/user-attachments/assets/a8af877f-a474-4e69-8808-99eb11aff126" />
 
 ### Gambar 16. Reverse lookup authoritative pada Tedd
 
-> **[MASUKKAN SCREENSHOT GAMBAR 16 DI SINI]**
+> <img width="579" height="351" alt="Screenshot 2026-10-01 220408" src="https://github.com/user-attachments/assets/ea0e011e-b79b-46a4-8dfe-93210be4dfb6" />
 
 ---
 
@@ -362,11 +349,11 @@ Web server Apache berhasil berjalan pada Obladi dan Desmond. Direktori `/arsip/`
 
 ### Gambar 17. Directory listing Obladi
 
-> **[MASUKKAN SCREENSHOT GAMBAR 17 DI SINI]**
+> <img width="646" height="387" alt="Screenshot 2026-10-01 220815" src="https://github.com/user-attachments/assets/6f6cf009-9b58-4fe0-9f4c-0412c2942907" />
 
 ### Gambar 18. Directory listing Desmond
 
-> **[MASUKKAN SCREENSHOT GAMBAR 18 DI SINI]**
+> <img width="648" height="375" alt="Screenshot 2026-10-01 220958" src="https://github.com/user-attachments/assets/c188bb77-ed6c-4dca-81a4-dc64b4a83f37" />
 
 ---
 
@@ -397,19 +384,19 @@ Nginx dan PHP-FPM berhasil menjalankan aplikasi pada kedua node Core. Halaman be
 
 ### Gambar 19. Web dinamis Oblada
 
-> **[MASUKKAN SCREENSHOT GAMBAR 19 DI SINI]**
+> <img width="488" height="388" alt="Screenshot 2026-10-01 221107" src="https://github.com/user-attachments/assets/07aafff4-fb9a-4e0e-a60c-2120d6a20254" />
 
 ### Gambar 20. Clean URL /profil Oblada
 
-> **[MASUKKAN SCREENSHOT GAMBAR 20 DI SINI]**
+> <img width="416" height="165" alt="Screenshot 2026-10-01 221147" src="https://github.com/user-attachments/assets/76be1600-c664-44b5-858a-7e553c791bb2" />
 
 ### Gambar 21. Web dinamis Molly
 
-> **[MASUKKAN SCREENSHOT GAMBAR 21 DI SINI]**
+> <img width="489" height="374" alt="Screenshot 2026-10-01 221301" src="https://github.com/user-attachments/assets/1f31b1f1-f004-4579-8110-cbf9cce8f578" />
 
 ### Gambar 22. Clean URL /profil Molly
 
-> **[MASUKKAN SCREENSHOT GAMBAR 22 DI SINI]**
+> <img width="404" height="210" alt="Screenshot 2026-10-01 221340" src="https://github.com/user-attachments/assets/b69b41b4-7e3b-45dd-b159-3e51bcf5c6f2" />
 
 ---
 
@@ -419,21 +406,22 @@ Pada pengerjaan soal 1–10, jaringan The Mesh berhasil dikonfigurasi mulai dari
 
 Rootkit berhasil berfungsi sebagai router sentral dan gateway internet. Prab dan Tedd berhasil berfungsi sebagai Primary dan Secondary DNS. Area Vault berhasil menjalankan layanan web statis menggunakan Apache, sedangkan area Core berhasil menjalankan aplikasi dinamis menggunakan Nginx dan PHP-FPM.
 
----
-
 ## Soal 11: Reverse Proxy & Forwarding Header (Penny & Abbey)
 
 Konfigurasi node **Penny** (Apache) sebagai reverse proxy yang mengarah ke area vault (**Obladi** & **Desmond**) dan node **Abbey** (Nginx) sebagai reverse proxy yang mengarah ke area core (**Oblada** & **Molly**)[cite: 7, 8]. Kedua gateway meneruskan header `Host` dan `X-Real-IP` ke backend masing-masing[cite: 8].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 Jalankan perintah berikut langsung pada terminal masing-masing node:
 
 #### Node: Penny
+
 ```bash
 a2enmod proxy proxy_http headers proxy_balancer lbmethod_byrequests
 ```
 
 #### Node: Abbey
+
 ```bash
 apt-get update -o Acquire::Check-Valid-Until=false
 apt-get install -y nginx
@@ -443,6 +431,7 @@ service nginx start
 ### 2. Script Otomasi di `/root/`
 
 #### Node: Penny (`/root/soal11.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal11.sh
 #!/bin/bash
@@ -470,6 +459,7 @@ chmod +x /root/soal11.sh
 ```
 
 #### Node: Abbey (`/root/soal11.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal11.sh
 #!/bin/bash
@@ -499,13 +489,16 @@ chmod +x /root/soal11.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan pengujian dari terminal node klien (**Alpha**):
+
 ```bash
 curl -I [http://www.K-60.com](http://www.K-60.com)
 curl -I [http://static.K-60.com](http://static.K-60.com)
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Permintaan ke `http://www.K-60.com` mengembalikan respons `HTTP/1.1 200 OK` (backend Apache)[cite: 8].
 - Permintaan ke `http://static.K-60.com` mengembalikan respons `HTTP/1.1 200 OK` (backend Nginx)[cite: 8].
 
@@ -530,14 +523,18 @@ Content-Type: text/html
 Penerapan Basic Authentication untuk mengamankan direktori rahasia `/admin` pada gateway **Penny** menggunakan user `prabs` dan password `pakar_pinter_jadi_gob***`[cite: 8].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Penny
+
 ```bash
 apt-get update -o Acquire::Check-Valid-Until=false
 apt-get install -y apache2-utils
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Penny (`/root/soal12.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal12.sh
 #!/bin/bash
@@ -560,7 +557,9 @@ chmod +x /root/soal12.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan pengujian dari node klien (**Alpha**):
+
 ```bash
 # Tanpa autentikasi (wajib ditolak)
 curl -I [http://www.K-60.com/admin/](http://www.K-60.com/admin/)
@@ -570,6 +569,7 @@ curl -I -u prabs:pakar_pinter_jadi_gob*** [http://www.K-60.com/admin/](http://ww
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Request tanpa kredensial menghasilkan `HTTP/1.1 401 Unauthorized`[cite: 8].
 - Request dengan kredensial berhasil lolos autentikasi dan merespons `HTTP/1.1 200 OK` (atau respon file)[cite: 8].
 
@@ -595,18 +595,23 @@ Content-Type: text/html
 Penerapan redirect permanen (301) dari IP Penny / `penny.K-60.com` ke kanonik `www.K-60.com`, serta redirect sementara (302) dari IP Abbey / `abbey.K-60.com` ke `static.K-60.com`[cite: 8].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Penny
+
 ```bash
 a2enmod rewrite
 ```
 
 #### Node: Abbey
+
 ```bash
 nginx -t
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Penny (`/root/soal13.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal13.sh
 #!/bin/bash
@@ -638,6 +643,7 @@ chmod +x /root/soal13.sh
 ```
 
 #### Node: Abbey (`/root/soal13.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal13.sh
 #!/bin/bash
@@ -673,7 +679,9 @@ chmod +x /root/soal13.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan dari node klien (**Alpha**):
+
 ```bash
 # Uji Redirect Penny
 curl -I [http://penny.K-60.com](http://penny.K-60.com)
@@ -685,6 +693,7 @@ curl -I [http://192.241.2.2](http://192.241.2.2)
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Penny mengembalikan kode `301 Moved Permanently` menuju `Location: http://www.K-60.com/`[cite: 8].
 - Abbey mengembalikan kode `302 Moved Temporarily` (atau `302 Found`) menuju `Location: http://static.K-60.com/`[cite: 8].
 
@@ -709,18 +718,23 @@ Location: [http://static.K-60.com/](http://static.K-60.com/)
 Pencatatan alamat IP asli klien (`192.241.6.2`) pada berkas access log di backend web server Area Vault (**Obladi** & **Desmond**) dan Area Core (**Oblada** & **Molly**)[cite: 5, 8].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Obladi & Desmond
+
 ```bash
 a2enmod remoteip
 ```
 
 #### Node: Oblada & Molly
+
 ```bash
 mkdir -p /etc/nginx/conf.d
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Obladi & Desmond (`/root/soal14.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal14.sh
 #!/bin/bash
@@ -738,6 +752,7 @@ chmod +x /root/soal14.sh
 ```
 
 #### Node: Oblada & Molly (`/root/soal14.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal14.sh
 #!/bin/bash
@@ -753,6 +768,7 @@ chmod +x /root/soal14.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 1. Dari node klien **Alpha**, kirimkan permintaan web[cite: 8]:
    ```bash
    curl [http://www.K-60.com/](http://www.K-60.com/)
@@ -763,6 +779,7 @@ chmod +x /root/soal14.sh
    - Di **Oblada** / **Molly**: `tail -n 2 /var/log/nginx/access.log`[cite: 8]
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Log akses backend mencatat IP `192.241.6.2` (IP Alpha), bukan IP reverse proxy `192.241.2.2` atau `192.241.2.3`[cite: 5, 8].
 
 ```text
@@ -779,7 +796,9 @@ chmod +x /root/soal14.sh
 Penyediaan path khusus mandiri pada gateway reverse proxy: `/eternal` di **Penny** dengan eksekusi file PHP, dan `/orion` di **Abbey** murni penyajian statis tanpa runtime PHP[cite: 8].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Penny
+
 ```bash
 apt-get update -o Acquire::Check-Valid-Until=false
 apt-get install -y php libapache2-mod-php
@@ -787,12 +806,15 @@ mkdir -p /var/www/eternal
 ```
 
 #### Node: Abbey
+
 ```bash
 mkdir -p /var/www/orion
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Penny (`/root/soal15.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal15.sh
 #!/bin/bash
@@ -822,6 +844,7 @@ chmod +x /root/soal15.sh
 ```
 
 #### Node: Abbey (`/root/soal15.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal15.sh
 #!/bin/bash
@@ -844,13 +867,16 @@ chmod +x /root/soal15.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan dari node klien (**Alpha**):
+
 ```bash
 curl [http://www.K-60.com/eternal/](http://www.K-60.com/eternal/)
 curl [http://static.K-60.com/orion/](http://static.K-60.com/orion/)
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Request `/eternal/` merender versi PHP aktif[cite: 8].
 - Request `/orion/` menyajikan teks statis murni tanpa parsing PHP[cite: 8].
 
@@ -870,13 +896,16 @@ curl [http://static.K-60.com/orion/](http://static.K-60.com/orion/)
 Stress test menggunakan `ab` sebanyak 250 requests dengan konkurensi 10 terhadap endpoint `www.K-60.com` dan `static.K-60.com` dari node klien **Alpha**[cite: 9].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Alpha
+
 ```bash
 apt-get update -o Acquire::Check-Valid-Until=false
 apt-get install -y apache2-utils
 ```
 
 #### Node: Penny
+
 ```bash
 cat << 'CONF' > /etc/apache2/conf-available/tuning.conf
 <IfModule mpm_event_module>
@@ -894,7 +923,9 @@ service apache2 restart
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Alpha (`/root/soal16.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal16.sh
 #!/bin/bash
@@ -914,12 +945,15 @@ chmod +x /root/soal16.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan benchmark di node **Alpha**:
+
 ```bash
 /root/soal16.sh
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - `Complete requests: 250` dan `Failed requests: 0` pada kedua endpoint[cite: 9].
 
 ```text
@@ -941,13 +975,17 @@ Requests per second:    1724.14 [#/sec] (mean)
 Penambahan catatan DNS TXT pada zona domain kelompok untuk klien sayap kiri (**Alpha**, **Beta**, **Gamma**) dan sayap kanan (**Delta**, **Epsilon**) yang mengembalikan nama host masing-masing[cite: 4, 9].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Prab
+
 ```bash
 named-checkzone K-60.com /etc/bind/db.K-60.com
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Prab (`/root/soal17.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal17.sh
 #!/bin/bash
@@ -975,12 +1013,15 @@ chmod +x /root/soal17.sh
 ```
 
 #### Node: Tedd
+
 ```bash
 service named restart || /etc/init.d/named restart
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan query TXT dari node klien (**Alpha**):
+
 ```bash
 dig TXT alpha.K-60.com +short
 dig TXT beta.K-60.com +short
@@ -990,7 +1031,9 @@ dig TXT epsilon.K-60.com +short
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 Output query mengembalikan string nama host bersangkutan[cite: 9]:
+
 ```text
 "alpha"
 "beta"
@@ -1008,8 +1051,11 @@ Output query mengembalikan string nama host bersangkutan[cite: 9]:
 Pengujian perilaku cache DNS dengan menyetel TTL 15 detik pada A record `abbey.K-60.com` yang dialihkan ke IP fiktif `192.241.99.99`[cite: 9].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Prab
+
 Pastikan record Abbey pada `/etc/bind/db.K-60.com` memuat IP asli dengan TTL 15 detik sebelum simulasi[cite: 9]:
+
 ```bash
 sed -i '/abbey.*IN.*A/d' /etc/bind/db.K-60.com
 echo "abbey       15  IN  A   192.241.2.2" >> /etc/bind/db.K-60.com
@@ -1017,7 +1063,9 @@ service named restart || /etc/init.d/named restart
 ```
 
 #### Node: Alpha
+
 Pasang local caching forwarder menggunakan `dnsmasq`[cite: 9]:
+
 ```bash
 apt-get update -o Acquire::Check-Valid-Until=false
 apt-get install -y dnsmasq
@@ -1033,7 +1081,9 @@ service dnsmasq restart
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Prab (`/root/soal18.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal18.sh
 #!/bin/bash
@@ -1057,6 +1107,7 @@ chmod +x /root/soal18.sh
 ```
 
 #### Node: Alpha (`/root/soal18.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal18.sh
 #!/bin/bash
@@ -1097,11 +1148,13 @@ chmod +x /root/soal18.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 1. Di **Alpha**, jalankan: `/root/soal18.sh`[cite: 1, 9].
 2. Saat berhenti di jeda Enter, jalankan `/root/soal18.sh` di **Prab**[cite: 1, 9].
 3. Kembali ke **Alpha**, tekan **ENTER** sebelum jeda 15 detik berakhir[cite: 9].
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Fase 1 mengembalikan IP asli (`192.241.2.2`)[cite: 9].
 - Fase 2 mengembalikan cache lama (`192.241.2.2`) dengan sisa masa berlaku TTL[cite: 9].
 - Fase 3 mengembalikan IP fiktif baru (`192.241.99.99`)[cite: 9].
@@ -1126,14 +1179,19 @@ abbey.K-60.com.         15      IN      A       192.241.99.99
 Membuat CNAME record DNS internal `outbound.K-60.com` yang mengarah ke domain eksternal `http.badssl.com` dan memverifikasi akses halamannya via `curl`[cite: 9].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 #### Node: Prab
+
 Pastikan forwarders BIND9 pada `/etc/bind/named.conf.options` mengarah ke gateway `192.168.122.1`[cite: 5, 7]:
+
 ```bash
 named-checkconf
 ```
 
 ### 2. Script Otomasi di `/root/`
+
 #### Node: Prab (`/root/soal19.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal19.sh
 #!/bin/bash
@@ -1157,6 +1215,7 @@ chmod +x /root/soal19.sh
 ```
 
 #### Node: Alpha (`/root/soal19.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal19.sh
 #!/bin/bash
@@ -1183,12 +1242,15 @@ chmod +x /root/soal19.sh
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan pengujian dari node klien (**Alpha**):
+
 ```bash
 /root/soal19.sh
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - Host alias menyatakan `outbound.K-60.com is an alias for http.badssl.com.` dan ter-resolve ke IP `104.154.89.105`[cite: 9].
 - Hasil `curl` menyajikan dokumen halaman web eksternal badssl[cite: 9].
 
@@ -1211,7 +1273,9 @@ http.badssl.com has address 104.154.89.105
 Mengembalikan record Abbey ke koordinat IP aslinya (`192.241.2.2`), serta menjamin persistensi autostart seluruh routing, firewall, dan service web/DNS saat node di-restart[cite: 10].
 
 ### 1. Langkah Konfigurasi Manual / Non-Root
+
 Jalankan penambahan baris autostart `/root/soal20.sh` ke `/root/.bashrc` di **seluruh node** praktikum:
+
 ```bash
 grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.bashrc
 ```
@@ -1219,6 +1283,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ### 2. Script Otomasi di `/root/`
 
 #### Node: Prab (Normalisasi A Record & Named Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1243,6 +1308,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Rootkit (Router & NAT Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1255,6 +1321,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Penny (Reverse Proxy Apache Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1268,6 +1335,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Abbey (Reverse Proxy Nginx Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1279,6 +1347,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Obladi & Desmond (Vault Web Server Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1291,6 +1360,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Oblada & Molly (Core Nginx + PHP-FPM Autostart) (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1303,6 +1373,7 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 #### Node: Klien Alpha s.d. Epsilon (`/root/soal20.sh`)
+
 ```bash
 cat << 'EOF' > /root/soal20.sh
 #!/bin/bash
@@ -1318,7 +1389,9 @@ grep -qxF '/root/soal20.sh' /root/.bashrc || echo '/root/soal20.sh' >> /root/.ba
 ```
 
 ### 3. Perintah Pengujian / Pengecekan
+
 Jalankan validasi menyeluruh dari node klien (**Alpha**):
+
 ```bash
 # 1. Cek Record Abbey (Harus kembali ke IP asli)
 host abbey.K-60.com
@@ -1333,6 +1406,7 @@ curl [http://static.K-60.com/orion/](http://static.K-60.com/orion/)
 ```
 
 ### 4. Tanda Sukses & Output Screenshot
+
 - `abbey.K-60.com` mengembalikan IP asli `192.241.2.2`[cite: 10].
 - Header HTTP kedua reverse proxy mengembalikan status `200 OK`[cite: 8].
 - Halaman `/eternal/` merender PHP dan `/orion/` merender halaman statis[cite: 8].
