@@ -1,6 +1,5 @@
 # Jarkom-Modul-2-2026-K-60
 # LAPORAN PRAKTIKUM MODUL 2
-## KOMUNIKASI DATA & JARINGAN KOMPUTER 2026
 
 **Kelompok:** K-60  
 **Domain:** K-60.com  
@@ -55,11 +54,14 @@ Konfigurasi IP dan default gateway berhasil diterapkan. Setiap node memiliki ala
 
 ### Gambar 1. Konfigurasi interface Rootkit
 
-> **[MASUKKAN SCREENSHOT GAMBAR 1 DI SINI]**
+> <img width="622" height="355" alt="Screenshot 2026-10-01 214004" src="https://github.com/user-attachments/assets/14fef93c-2ea3-4b3a-a9f3-1350cea72ef0" />
+
 
 ### Gambar 2. IP address dan default gateway salah satu client
 
-> **[MASUKKAN SCREENSHOT GAMBAR 2 DI SINI]**
+> <img width="617" height="218" alt="Screenshot 2026-10-01 214128" src="https://github.com/user-attachments/assets/9cac789d-6221-4f41-834a-79292625568f" />
+
+
 
 ---
 
@@ -84,11 +86,14 @@ Client pada jaringan internal berhasil mengakses IP publik melalui Rootkit. Peng
 
 ### Gambar 3. Konfigurasi WAN dan NAT Rootkit
 
-> **[MASUKKAN SCREENSHOT GAMBAR 3 DI SINI]**
+> <img width="641" height="161" alt="Screenshot 2026-10-01 214231" src="https://github.com/user-attachments/assets/bd714f4d-f5e5-44ff-b7a6-c64dce814916" />
+
 
 ### Gambar 4. Pengujian internet dari client
 
 > **[MASUKKAN SCREENSHOT GAMBAR 4 DI SINI]**
+> <img width="526" height="164" alt="Screenshot 2026-10-01 214314" src="https://github.com/user-attachments/assets/3c7d4e2e-594f-4bcf-b240-184f9b90ebdd" />
+
 
 ---
 
@@ -114,11 +119,13 @@ Resolver eksternal juga berhasil digunakan untuk melakukan resolusi domain publi
 
 ### Gambar 5. Pengujian routing antarsegmen
 
-> **[MASUKKAN SCREENSHOT GAMBAR 5 DI SINI]**
+> <img width="510" height="255" alt="Screenshot 2026-10-01 214613" src="https://github.com/user-attachments/assets/d75be81a-66ef-426a-94e0-569d985b176f" />
+
 
 ### Gambar 6. Resolver dan pengujian domain publik
 
-> **[MASUKKAN SCREENSHOT GAMBAR 6 DI SINI]**
+> <img width="645" height="208" alt="Screenshot 2026-10-01 214657" src="https://github.com/user-attachments/assets/4df17764-4b9c-4503-8fff-c5eebe54176a" />
+
 
 ---
 
@@ -159,11 +166,13 @@ Prab dan Tedd berhasil menjawab query DNS untuk zona `K-60.com`.
 
 ### Gambar 7. Query DNS melalui Prab dan Tedd
 
-> **[MASUKKAN SCREENSHOT GAMBAR 7 DI SINI]**
+> <img width="372" height="100" alt="Screenshot 2026-10-01 214758" src="https://github.com/user-attachments/assets/bb2d5670-ad30-4647-8485-4343ac823809" />
+
 
 ### Gambar 8. Resolver internal
 
-> **[MASUKKAN SCREENSHOT GAMBAR 8 DI SINI]**
+> <img width="504" height="132" alt="Screenshot 2026-10-01 214916" src="https://github.com/user-attachments/assets/c35b93d6-43fa-4e75-8c30-d98b62c3c039" />
+
 
 ---
 
@@ -196,11 +205,13 @@ Hostname berhasil diterapkan secara system-wide dan DNS dapat menerjemahkan host
 
 ### Gambar 9. Verifikasi hostname
 
-> **[MASUKKAN SCREENSHOT GAMBAR 9 DI SINI]**
+> <img width="192" height="102" alt="Screenshot 2026-10-01 215016" src="https://github.com/user-attachments/assets/40fac181-1260-4ce7-83f5-e33737df510f" />
+
 
 ### Gambar 10. Verifikasi A record
 
-> **[MASUKKAN SCREENSHOT GAMBAR 10 DI SINI]**
+> <img width="634" height="259" alt="Screenshot 2026-10-01 215100" src="https://github.com/user-attachments/assets/76a7db6a-d786-482b-93f3-8c7cee309752" />
+
 
 ---
 
@@ -224,7 +235,8 @@ Hal tersebut menunjukkan bahwa Tedd telah memperoleh zona terbaru dari Prab.
 
 ### Gambar 11. Perbandingan serial SOA Prab dan Tedd
 
-> **[MASUKKAN SCREENSHOT GAMBAR 11 DI SINI]**
+> <img width="556" height="135" alt="Screenshot 2026-10-01 215207" src="https://github.com/user-attachments/assets/c4839180-2f55-4f01-8ce0-ba27a453000e" />
+
 
 ---
 
@@ -273,11 +285,13 @@ Seluruh hostname berhasil di-resolve dengan benar. Pengujian dilakukan dari dua 
 
 ### Gambar 12. Record Vault, Core, WWW, dan Static
 
-> **[MASUKKAN SCREENSHOT GAMBAR 12 DI SINI]**
+> <img width="319" height="321" alt="Screenshot 2026-10-01 215300" src="https://github.com/user-attachments/assets/64cea192-19e6-41a3-9eee-07abfe572813" />
+
 
 ### Gambar 13. Pengujian dari Client Alpha
 
-> **[MASUKKAN SCREENSHOT GAMBAR 13 DI SINI]**
+> <img width="611" height="391" alt="Screenshot 2026-10-01 215413" src="https://github.com/user-attachments/assets/3e1c237e-2ac4-478a-b1dd-a1d799fec5b0" />
+
 
 ### Gambar 14. Pengujian dari Client Delta
 
