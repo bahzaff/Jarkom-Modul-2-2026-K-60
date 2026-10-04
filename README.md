@@ -515,7 +515,7 @@ Content-Type: text/html
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal **Alpha** yang mengeksekusi kedua perintah `curl -I` dengan status `200 OK`.
-
+![Deskripsi Gambar](img/14.png)
 ---
 
 ## Soal 12: Basic Authentication /admin di Penny
@@ -587,7 +587,7 @@ Content-Type: text/html
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal perbandingan respon error `401 Unauthorized` dan respon sukses setelah memasukkan `-u prabs:...`.
-
+![Deskripsi Gambar](img/12.png)
 ---
 
 ## Soal 13: Canonical Redirection (301 Permanent & 302 Temporary)
@@ -710,7 +710,7 @@ Location: [http://static.K-60.com/](http://static.K-60.com/)
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan header kode respons 301 dan 302 beserta parameter `Location:`.
-
+![Deskripsi Gambar](img/13.png)
 ---
 
 ## Soal 14: Client Real IP Logging (Vault & Core Backend)
@@ -788,7 +788,8 @@ chmod +x /root/soal14.sh
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal backend yang menampilkan IP klien `192.241.6.2` pada baris access log.
-
+![Deskripsi Gambar](img/14_(2).png)
+![Deskripsi Gambar](img/14_(3).png)
 ---
 
 ## Soal 15: Dedicated Path /eternal (PHP) & /orion (Statis)
@@ -888,7 +889,7 @@ curl [http://static.K-60.com/orion/](http://static.K-60.com/orion/)
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan respon HTML dari kedua endpoint di atas.
-
+![Deskripsi Gambar](img/15_(2).png)
 ---
 
 ## Soal 16: Stress Testing dengan ApacheBench (Alpha)
@@ -967,7 +968,7 @@ Requests per second:    1724.14 [#/sec] (mean)
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal laporan summary ApacheBench yang menampilkan 250 requests complete tanpa failure.
-
+![Deskripsi Gambar](img/16_(2).png)
 ---
 
 ## Soal 17: DNS TXT Records untuk Klien Sayap Kiri & Kanan
@@ -1043,7 +1044,7 @@ Output query mengembalikan string nama host bersangkutan[cite: 9]:
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang mengeksekusi perintah `dig TXT` kelima klien di atas.
-
+![Deskripsi Gambar](img/17_(2).png)
 ---
 
 ## Soal 18: DNS A Record Fiktif, TTL 15s, & Verifikasi DNS Cache
@@ -1171,7 +1172,7 @@ abbey.K-60.com.         15      IN      A       192.241.99.99
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang mencakup keluaran Fase 1, Fase 2, countdown timer, dan Fase 3 secara terpadu.
-
+![Deskripsi Gambar](img/18.png)
 ---
 
 ## Soal 19: CNAME Binding ke Domain Eksternal http.badssl.com
@@ -1265,7 +1266,7 @@ http.badssl.com has address 104.154.89.105
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan hasil `host`, `dig`, dan cuplikan `curl` badssl.
-
+![Deskripsi Gambar](img/19.png)
 ---
 
 ## Soal 20: Autostart Persistent Services & Normalisasi Koordinat
@@ -1430,3 +1431,4 @@ Content-Type: text/html
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan ketiga blok hasil verifikasi akhir sistem secara lengkap.
+![Deskripsi Gambar](img/20.png)
