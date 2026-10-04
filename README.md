@@ -710,8 +710,8 @@ Location: [http://static.K-60.com/](http://static.K-60.com/)
 ```
 
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan header kode respons 301 dan 302 beserta parameter `Location:`.
-![Deskripsi Gambar](img/13.png)
 ---
+![Deskripsi Gambar](img/13.png)
 
 ## Soal 14: Client Real IP Logging (Vault & Core Backend)
 
