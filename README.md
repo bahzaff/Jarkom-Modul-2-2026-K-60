@@ -792,8 +792,8 @@ chmod +x /root/soal14.sh
 > **Screenshot:** Ambil tangkapan layar terminal backend yang menampilkan IP klien `192.241.6.2` pada baris access log.
 ---
 
-![Deskripsi Gambar](img/14_(2).png)
-![Deskripsi Gambar](img/14_(3).png)
+![Deskripsi Gambar](img/142.png)
+![Deskripsi Gambar](img/143.png)
 
 ## Soal 15: Dedicated Path /eternal (PHP) & /orion (Statis)
 
@@ -894,7 +894,7 @@ curl [http://static.K-60.com/orion/](http://static.K-60.com/orion/)
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang memperlihatkan respon HTML dari kedua endpoint di atas.
 ---
 
-![Deskripsi Gambar](img/15_(2).png)
+![Deskripsi Gambar](img/152.png)
 
 ## Soal 16: Stress Testing dengan ApacheBench (Alpha)
 
@@ -974,7 +974,7 @@ Requests per second:    1724.14 [#/sec] (mean)
 > **Screenshot:** Ambil tangkapan layar terminal laporan summary ApacheBench yang menampilkan 250 requests complete tanpa failure.
 ---
 
-![Deskripsi Gambar](img/16_(2).png)
+![Deskripsi Gambar](img/162.png)
 
 ## Soal 17: DNS TXT Records untuk Klien Sayap Kiri & Kanan
 
@@ -1051,7 +1051,7 @@ Output query mengembalikan string nama host bersangkutan[cite: 9]:
 > **Screenshot:** Ambil tangkapan layar terminal `alpha` yang mengeksekusi perintah `dig TXT` kelima klien di atas.
 ---
 
-![Deskripsi Gambar](img/17_(2).png)
+![Deskripsi Gambar](img/172.png)
 
 ## Soal 18: DNS A Record Fiktif, TTL 15s, & Verifikasi DNS Cache
 
