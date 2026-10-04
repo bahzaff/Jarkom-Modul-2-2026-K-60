@@ -793,6 +793,7 @@ chmod +x /root/soal14.sh
 ---
 
 ![Deskripsi Gambar](img/142.png)
+
 ![Deskripsi Gambar](img/143.png)
 
 ## Soal 15: Dedicated Path /eternal (PHP) & /orion (Statis)
