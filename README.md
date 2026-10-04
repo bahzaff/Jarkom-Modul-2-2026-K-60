@@ -406,6 +406,91 @@ Pada pengerjaan soal 1–10, jaringan The Mesh berhasil dikonfigurasi mulai dari
 
 Rootkit berhasil berfungsi sebagai router sentral dan gateway internet. Prab dan Tedd berhasil berfungsi sebagai Primary dan Secondary DNS. Area Vault berhasil menjalankan layanan web statis menggunakan Apache, sedangkan area Core berhasil menjalankan aplikasi dinamis menggunakan Nginx dan PHP-FPM.
 
+## Revisi Soal 6 — Hasil Pengujian Zone Transfer
+
+Setelah dilakukan konfigurasi ulang layanan BIND pada Prab dan Tedd, Secondary DNS Tedd berhasil menerima zona `K-60.com` dari Primary DNS Prab.
+
+Hasil pengecekan SOA pada Tedd menunjukkan:
+
+```bash
+dig @192.241.1.3 K-60.com SOA +short
+```
+
+dengan serial:
+
+```text
+2026093004
+```
+
+Serial tersebut sama dengan serial SOA pada Prab, yaitu `2026093004`. Selain itu, pengujian record melalui Tedd:
+
+```bash
+dig @192.241.1.3 molly.K-60.com A +short
+```
+
+berhasil menghasilkan:
+
+```text
+192.241.1.7
+```
+
+Dengan demikian, **zone transfer dari Prab ke Tedd berhasil** dan Tedd telah memiliki data zona terbaru yang sama dengan Prab.
+
+---
+
+## Revisi Soal 9 — Hasil Pengujian Static Web Server Area Vault
+
+Setelah dilakukan perbaikan layanan Apache pada Obladi dan Desmond, kedua static web server berhasil berjalan pada port 80. Direktori `/arsip/` juga berhasil menampilkan directory listing menggunakan fitur AutoIndex.
+
+Pengujian masing-masing backend dari client Alpha:
+
+```bash
+curl http://192.241.1.4/arsip/
+curl http://192.241.1.5/arsip/
+```
+
+berhasil menampilkan halaman `Index of /arsip`.
+
+Selanjutnya dilakukan pengecekan DNS:
+
+```bash
+dig @192.241.1.2 vault.K-60.com +short
+```
+
+dan diperoleh:
+
+```text
+192.241.1.5
+192.241.1.4
+```
+
+Hal ini menunjukkan bahwa `vault.K-60.com` berhasil di-resolve menuju Obladi dan Desmond.
+
+Pengujian akhir kemudian dilakukan menggunakan **hostname sesuai ketentuan soal**:
+
+```bash
+curl http://vault.K-60.com/arsip/
+```
+
+Pengujian berhasil menampilkan halaman `Index of /arsip` beserta file yang tersedia pada server Vault. Dengan demikian, akses static web server menggunakan hostname `vault.K-60.com` **berhasil dilakukan**.
+
+---
+
+## Revisi Soal 10 — Hasil Pengujian Dynamic Web Server Area Core
+
+Pada pengujian sebelumnya, layanan dynamic web pada Oblada dan Molly berhasil dijalankan menggunakan Nginx dan PHP-FPM. Halaman beranda serta halaman profil dapat ditampilkan, dan konfigurasi rewrite memungkinkan halaman profil diakses melalui clean URL `/profil` tanpa ekstensi `.php`.
+
+Namun, setelah node GNS3 mengalami restart, layanan Nginx dan PHP-FPM perlu dikonfigurasi atau dijalankan kembali. Oleh karena itu, hasil pengujian menggunakan hostname:
+
+```bash
+curl http://core.K-60.com/
+curl http://core.K-60.com/profil
+```
+
+**belum diverifikasi ulang setelah restart**.
+
+Pengujian ulang perlu dilakukan pada kedua backend Core, yaitu Oblada (`192.241.1.6`) dan Molly (`192.241.1.7`), sebelum hasil akhir akses melalui `core.K-60.com` dinyatakan berhasil.
+
 ## Soal 11: Reverse Proxy & Forwarding Header (Penny & Abbey)
 
 Konfigurasi node **Penny** (Apache) sebagai reverse proxy yang mengarah ke area vault (**Obladi** & **Desmond**) dan node **Abbey** (Nginx) sebagai reverse proxy yang mengarah ke area core (**Oblada** & **Molly**)[cite: 7, 8]. Kedua gateway meneruskan header `Host` dan `X-Real-IP` ke backend masing-masing[cite: 8].
